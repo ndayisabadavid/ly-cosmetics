@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-luxury-gold: #b98a2d;
+  --color-luxury-rose: #b76e79;
+  --color-luxury-sage: #647a62;
+  --color-luxury-cream: #f7f3ee;
+  --color-luxury-ink: #181614;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-luxury-cream text-luxury-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+
+  a,
+  button {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-luxury-rose focus-visible:ring-offset-2;
+  }
+}
+
+@layer components {
+  .site-header {
+    @apply fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-white/92 backdrop-blur-xl transition-all duration-300;
+  }
+
+  .site-header--scrolled {
+    @apply shadow-[0_18px_50px_-35px_rgba(24,22,20,0.5)];
+  }
+
+  .brand-mark {
+    @apply flex items-center gap-3 text-luxury-ink transition-opacity hover:opacity-80;
+  }
+
+  .brand-mark__icon {
+    @apply flex h-11 w-11 items-center justify-center rounded-[8px] bg-luxury-ink text-sm font-bold tracking-widest text-white;
+  }
+
+  .nav-link {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-luxury-ink/62 transition-colors hover:text-luxury-rose;
+  }
+
+  .nav-link--active {
+    @apply text-luxury-ink;
+  }
+
+  .mobile-link {
+    @apply border-b border-luxury-ink/10 pb-3 text-sm font-bold uppercase tracking-[0.2em] text-luxury-ink;
+  }
+
+  .button-dark,
+  .button-light,
+  .button-outline,
+  .button-ghost {
+    @apply inline-flex min-h-11 items-center gap-2 rounded-[6px] px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] transition-all;
+  }
+
+  .button-dark {
+    @apply bg-luxury-ink text-white hover:bg-luxury-rose;
+  }
+
+  .button-light {
+    @apply bg-white text-luxury-ink hover:bg-luxury-cream;
+  }
+
+  .button-outline {
+    @apply border border-luxury-ink/18 bg-white text-luxury-ink hover:border-luxury-rose hover:text-luxury-rose;
+  }
+
+  .button-ghost {
+    @apply border border-white/35 bg-white/10 text-white backdrop-blur-md hover:bg-white/18;
+  }
+
+  .icon-button {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-[8px] border border-luxury-ink/12 bg-white text-luxury-ink transition-colors hover:border-luxury-rose hover:text-luxury-rose;
+  }
+
+  .hero-section {
+    @apply relative min-h-screen overflow-hidden bg-luxury-ink;
+  }
+
+  .hero-media {
+    @apply absolute inset-0;
+  }
+
+  .hero-media img {
+    @apply h-full w-full object-cover;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-[linear-gradient(90deg,rgba(24,22,20,0.82)_0%,rgba(24,22,20,0.62)_45%,rgba(24,22,20,0.20)_100%)];
+  }
+
+  .hero-product-card {
+    @apply ml-auto hidden w-full max-w-md overflow-hidden rounded-[8px] bg-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)] lg:block;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.32em] text-white/70;
+  }
+
+  .eyebrow-dark {
+    @apply text-xs font-bold uppercase tracking-[0.28em] text-luxury-rose;
+  }
+
+  .section-title {
+    @apply text-4xl font-semibold leading-tight md:text-5xl;
+  }
+
+  .section-shell {
+    @apply bg-luxury-cream py-20;
+  }
+
+  .page-shell {
+    @apply min-h-screen pt-24;
+  }
+
+  .feature-tile {
+    @apply flex gap-4 rounded-[8px] border border-luxury-ink/10 bg-white p-6 shadow-[0_18px_50px_-40px_rgba(24,22,20,0.5)];
+  }
+
+  .check-row {
+    @apply flex items-center gap-3 rounded-[8px] border border-luxury-ink/10 bg-white px-4 py-4 text-sm font-semibold;
+  }
+
+  .small-link {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-luxury-rose hover:text-luxury-ink;
+  }
+
+  .product-image-wrap {
+    @apply min-h-[440px] overflow-hidden rounded-[8px] bg-white shadow-[0_25px_70px_-45px_rgba(24,22,20,0.7)];
+  }
+
+  .product-panel {
+    @apply rounded-[8px] border border-luxury-ink/10 bg-white p-6 shadow-[0_25px_70px_-55px_rgba(24,22,20,0.65)] md:p-10;
+  }
+
+  .leader-card {
+    @apply flex flex-col gap-6 rounded-[8px] border border-luxury-ink/10 bg-white p-6 shadow-[0_20px_60px_-50px_rgba(24,22,20,0.6)] sm:flex-row sm:p-8;
+  }
+
+  .leader-avatar {
+    @apply flex h-24 w-24 shrink-0 items-center justify-center rounded-[8px] bg-luxury-ink text-2xl font-bold tracking-[0.18em] text-white;
+  }
+
+  .footer-title {
+    @apply mb-5 text-xs font-bold uppercase tracking-[0.24em] text-luxury-rose;
+  }
+
+  .footer-link {
+    @apply flex gap-3 leading-6 text-luxury-ink/70 transition-colors hover:text-luxury-rose;
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-5 right-5 z-[60] inline-flex h-14 items-center gap-2 rounded-[8px] bg-[#25d366] px-4 text-white shadow-[0_18px_50px_-25px_rgba(0,0,0,0.8)] transition-transform hover:scale-105;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(24, 22, 20, 0.82) 0%, rgba(24, 22, 20, 0.66) 100%);
+  }
+}
