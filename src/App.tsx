@@ -443,7 +443,7 @@ const Header = () => {
 };
 
 const Footer = () => (
-  <footer id="contact" className="border-t border-luxury-ink/10 bg-white pb-28 md:pb-0">
+  <footer id="contact" className="border-t border-luxury-ink/10 bg-white pb-36 md:pb-0">
     <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
       <div>
         <h2 className="mb-4 text-2xl font-bold">LY Cosmetics</h2>
@@ -1042,14 +1042,14 @@ const ChatButton = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex items-center justify-center bg-black/50 p-4"
+            className="chat-backdrop fixed inset-0 z-[70] flex items-center justify-center bg-black/50 p-4"
             onClick={() => setIsChatOpen(false)}
           >
             <motion.div
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
-              className="w-full max-w-md rounded-[8px] bg-white shadow-2xl"
+              className="chat-panel w-full max-w-md rounded-[8px] bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between border-b border-luxury-ink/10 p-4">
@@ -1059,7 +1059,7 @@ const ChatButton = () => {
                 </button>
               </div>
 
-              <div className="h-80 space-y-4 overflow-y-auto p-4">
+              <div className="chat-scroll h-80 space-y-4 overflow-y-auto p-4">
                 {messages.map((message, index) => (
                   <div key={index} className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}>
                     <div className="max-w-[88%]">
