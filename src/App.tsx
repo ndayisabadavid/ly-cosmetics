@@ -1053,7 +1053,7 @@ const ChatButton = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between border-b border-luxury-ink/10 p-4">
-                <h3 className="font-semibold text-luxury-ink">LY Glow Assistant 💫</h3>
+                <h3 className="font-semibold text-luxury-ink">LY Glow Assistant</h3>
                 <button onClick={() => setIsChatOpen(false)} className="icon-button" aria-label="Close chat">
                   <X className="h-5 w-5" />
                 </button>

@@ -22,6 +22,7 @@
     background:
       linear-gradient(180deg, #f8f3ee 0%, #fbf8f4 42%, #f8f3ee 100%);
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   h1,
@@ -81,7 +82,7 @@
   .button-outline,
   .button-ghost,
   .button-whatsapp {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-[6px] px-5 py-3 text-xs font-bold uppercase transition-all duration-300;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-[6px] px-5 py-3 text-center text-xs font-bold uppercase transition-all duration-300;
     line-height: 1.25;
   }
 
@@ -111,6 +112,7 @@
 
   .hero-section {
     @apply relative min-h-screen overflow-hidden bg-luxury-ink;
+    min-height: 100svh;
   }
 
   .hero-media {
@@ -217,7 +219,7 @@
   }
 
   .product-card {
-    @apply grid h-full overflow-hidden rounded-[8px] border border-[#E8DDD3] bg-white shadow-[0_24px_70px_-52px_rgba(31,26,23,0.68)] md:grid-cols-[0.95fr_1.05fr];
+    @apply grid h-full overflow-hidden rounded-[8px] border border-[#E8DDD3] bg-white shadow-[0_24px_70px_-52px_rgba(31,26,23,0.68)] lg:grid-cols-[0.95fr_1.05fr];
     transition:
       border-color 220ms ease,
       box-shadow 220ms ease,
@@ -226,7 +228,7 @@
   }
 
   .product-card img {
-    @apply h-80 w-full object-cover md:h-full;
+    @apply h-80 w-full object-cover lg:h-full;
     transition: transform 700ms ease;
   }
 
@@ -614,6 +616,11 @@
     @apply fixed bottom-20 right-5 z-[60] inline-flex h-14 items-center gap-2 rounded-[8px] bg-luxury-rose px-4 text-white shadow-[0_18px_50px_-25px_rgba(0,0,0,0.65)] transition-all hover:-translate-y-0.5 hover:shadow-[0_22px_60px_-28px_rgba(201,143,157,0.88)];
   }
 
+  .chat-float,
+  .whatsapp-float {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
   .chat-message {
     @apply rounded-[8px] px-3 py-2 text-sm leading-6 whitespace-pre-line;
   }
@@ -656,6 +663,10 @@
 }
 
 @media (max-width: 1023px) {
+  .section-title {
+    @apply text-4xl;
+  }
+
   .hero-media img {
     object-position: 24% center;
   }
@@ -677,24 +688,220 @@
   .owner-photo--front {
     @apply h-[500px];
   }
+
+  .shop-card > img {
+    @apply h-[380px];
+  }
+
+  .editorial-image img,
+  .ingredient-panel img {
+    @apply min-h-[360px];
+  }
+
+  .contact-band {
+    @apply mx-5 rounded-[8px];
+  }
 }
 
 @media (max-width: 767px) {
+  .site-header > div {
+    @apply px-4 py-3;
+  }
+
+  .brand-mark {
+    @apply min-w-0 gap-2;
+  }
+
+  .brand-mark__icon {
+    @apply h-10 w-10 text-xs;
+  }
+
+  .brand-mark span:last-child {
+    @apply min-w-0;
+  }
+
+  .brand-mark span:last-child span:first-child {
+    @apply text-sm;
+  }
+
+  .brand-mark span:last-child span:last-child {
+    @apply text-[10px];
+  }
+
+  .icon-button {
+    @apply h-10 w-10 shrink-0;
+  }
+
+  .button-dark,
+  .button-light,
+  .button-outline,
+  .button-ghost,
+  .button-whatsapp {
+    @apply min-h-12 w-full px-4 py-3 text-[11px];
+  }
+
+  .page-shell {
+    @apply pt-20;
+  }
+
+  .section-title {
+    @apply text-[2.15rem] leading-[1.08];
+  }
+
   .hero-media img {
-    object-position: 26% center;
+    object-position: 22% center;
   }
 
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(23, 19, 17, 0.74) 0%, rgba(23, 19, 17, 0.88) 100%);
+    background:
+      linear-gradient(180deg, rgba(23, 19, 17, 0.78) 0%, rgba(23, 19, 17, 0.9) 100%),
+      linear-gradient(90deg, rgba(23, 19, 17, 0.58) 0%, rgba(23, 19, 17, 0.78) 100%);
   }
 
   .hero-copy {
     @apply ml-0 max-w-xl;
   }
 
+  .hero-section .relative.z-10 {
+    @apply min-h-[100svh] px-4 pb-10 pt-24;
+  }
+
+  .hero-copy h1 {
+    @apply mt-4 text-[3.1rem] leading-[0.98];
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    @apply mt-5 text-base leading-7;
+  }
+
   .section-shell,
   .bg-white.py-20 {
     @apply py-16;
+  }
+
+  .hero-stats {
+    @apply mt-8;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-stats div {
+    @apply px-3 py-3;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 0;
+  }
+
+  .hero-stats div:last-child {
+    border-right: 0;
+  }
+
+  .hero-stats strong {
+    @apply text-xl;
+  }
+
+  .hero-stats span {
+    @apply text-[11px] leading-4;
+  }
+
+  .feature-tile,
+  .step-card,
+  .choice-card,
+  .review-card,
+  .ritual-card,
+  .shop-choice-card,
+  .testimonial-card,
+  .leader-card,
+  .about-value-card {
+    @apply p-5;
+  }
+
+  .product-card img {
+    @apply h-72;
+  }
+
+  .product-card__body,
+  .shop-card__body {
+    @apply p-5;
+  }
+
+  .shop-card > img {
+    @apply h-72;
+  }
+
+  .editorial-image img {
+    @apply min-h-0 h-80;
+  }
+
+  .ingredient-panel img {
+    @apply min-h-0 h-72;
+  }
+
+  .shade-card img {
+    @apply h-40;
+  }
+
+  .contact-band {
+    @apply mx-4 gap-6 px-5 py-8;
+  }
+
+  .contact-band h2 {
+    @apply text-3xl;
+  }
+
+  .contact-band__actions {
+    @apply flex-col;
+  }
+
+  .owner-photo-stack {
+    @apply grid min-h-0 gap-3;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .owner-photo,
+  .owner-photo--back,
+  .owner-photo--front {
+    @apply relative inset-auto h-[340px] w-full;
+    animation: none;
+  }
+
+  .owner-photo--back {
+    @apply h-[300px];
+  }
+
+  .owner-story-card img {
+    @apply h-[320px];
+  }
+
+  .mission-vision-panel,
+  .about-cta,
+  .brand-story,
+  .product-panel,
+  .shop-order-panel,
+  .care-note {
+    @apply p-5;
+  }
+
+  .whatsapp-float {
+    @apply bottom-4 right-4 h-12 w-12 justify-center px-0;
+  }
+
+  .chat-float {
+    @apply bottom-[4.5rem] right-4 h-12 w-12 justify-center px-0;
+  }
+
+  .whatsapp-float span,
+  .chat-float span {
+    @apply hidden;
+  }
+
+  .chat-float svg,
+  .whatsapp-float svg {
+    @apply h-5 w-5;
+  }
+}
+
+@media (max-width: 389px) {
+  .hero-copy h1 {
+    @apply text-[2.75rem];
   }
 
   .hero-stats {
@@ -710,40 +917,8 @@
     border-bottom: 0;
   }
 
-  .shop-card > img {
-    @apply h-80;
-  }
-
-  .editorial-image img {
-    @apply min-h-[320px];
-  }
-
-  .owner-photo-stack {
-    @apply grid min-h-0 gap-3;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .owner-photo,
-  .owner-photo--back,
-  .owner-photo--front {
-    @apply relative inset-auto h-[410px] w-full;
-    animation: none;
-  }
-
-  .owner-photo--back {
-    @apply h-[380px];
-  }
-
-  .owner-story-card img {
-    @apply h-[360px];
-  }
-
-  .whatsapp-float {
-    @apply bottom-4 right-4 h-12 px-3;
-  }
-
-  .chat-float {
-    @apply bottom-[4.5rem] right-4 h-12 px-3;
+  .section-title {
+    @apply text-[1.95rem];
   }
 }
 
